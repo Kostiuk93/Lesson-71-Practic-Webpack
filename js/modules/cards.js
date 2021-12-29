@@ -1,3 +1,5 @@
+import {getResource} from "../services/services";
+
 function cards () {
     // Иcпользуем классы для карточек
 
@@ -50,23 +52,7 @@ function cards () {
 
         return await res.json(); //возвращаем промис
     };
+ 
+}
 
-
-    // Создаем карточки товаров исходя из информации базы данных в db.json
-    //Первый способ
-    getResurce('http://localhost:3000/menu')
-        .then(data => {
-            data.forEach(({img, altimg, title, descr, price}) => {
-                new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
-            });
-        });
-    // Способ при использовании библиотеки axios
-    /* axios.get('http://localhost:3000/menu') 
-        .then(data => {
-            data.data.forEach(({img, altimg, title, descr, price}) => {
-                new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
-            });
-        }); */
-    }
-
-module.exports = cards;
+export default cards;

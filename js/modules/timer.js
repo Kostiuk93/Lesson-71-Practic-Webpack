@@ -1,7 +1,5 @@
-function timer () {
+function timer (id, deadline) {
     //Timer
-
-    const deadline = '2021-12-05'; //Задаем начальную точку отсчета
 
     function getTimeRemaining(endtime) {
         const   t = Date.parse(endtime) - Date.parse(new Date()), //разница между конечной датой и нынешней датой в миллисекундах
@@ -50,7 +48,7 @@ function timer () {
             }
         }
     }
-    setClock('.timer', deadline);
+    setClock(id, deadline);
 }
 
-module.exports = timer;
+export default timer;
